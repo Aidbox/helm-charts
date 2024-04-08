@@ -1,6 +1,0 @@
-apiVersion: v2
-appVersion: "16.1"
-description: AidboxDB
-name: aidboxdb
-type: application
-version: 0.1.0
