@@ -47,6 +47,9 @@ spec:
             - name: db-data
               mountPath: /data
               subPath: pg
+            {{- with .Values.volumeMounts }}
+            {{- toYaml . | nindent 12 }}
+            {{- end }}
           ports:
             - containerPort: 5432
               protocol: TCP
@@ -61,3 +64,6 @@ spec:
         - name: db-data
           persistentVolumeClaim:
             claimName: {{ $fullName }}-data
+        {{- with .Values.volumes }}
+        {{- toYaml . | nindent 8 }}
+        {{- end }}

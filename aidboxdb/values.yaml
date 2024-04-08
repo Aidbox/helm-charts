@@ -9,7 +9,6 @@ env:
 storageClassName: ""
 storageSize: 300Gi
 
-
 image:
   repository: healthsamurai/aidboxdb
   pullPolicy: IfNotPresent
@@ -30,3 +29,16 @@ securityContext: {}
   # readOnlyRootFilesystem: true
   # runAsNonRoot: true
   # runAsUser: 1000
+
+# Additional volumes on the output StatefulSet definition.
+volumes: []
+# - name: foo
+#   secret:
+#     secretName: mysecret
+#     optional: false
+
+# Additional volumeMounts on the output StatefulSet definition.
+volumeMounts: []
+# - name: foo
+#   mountPath: "/etc/foo"
+#   readOnly: true

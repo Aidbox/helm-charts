@@ -56,6 +56,19 @@ startupProbe:
   periodSeconds:  5
   failureThreshold: 10
 
+# Additional volumes on the output Deployment definition.
+volumes: []
+# - name: foo
+#   secret:
+#     secretName: mysecret
+#     optional: false
+
+# Additional volumeMounts on the output Deployment definition.
+volumeMounts: []
+# - name: foo
+#   mountPath: "/etc/foo"
+#   readOnly: true
+
 resources:
   # limits:
   #   cpu: 100m
