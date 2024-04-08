@@ -11,4 +11,15 @@ entries:
     urls:
     - https://github.com/Aidbox/helm-charts/releases/download/aidbox-0.1.1/aidbox-0.1.1.tgz
     version: 0.1.1
-generated: "2024-04-08T15:32:18.442510468Z"
+  aidboxdb:
+  - apiVersion: v2
+    appVersion: "16.1"
+    created: "2024-04-08T15:40:11.076545884Z"
+    description: AidboxDB
+    digest: f92f2c899c253f2fb5154cb810c4badcd0639f554e12593b90b49314204fcd21
+    name: aidboxdb
+    type: application
+    urls:
+    - https://github.com/Aidbox/helm-charts/releases/download/aidboxdb-0.1.1/aidboxdb-0.1.1.tgz
+    version: 0.1.1
+generated: "2024-04-08T15:40:11.076552145Z"
