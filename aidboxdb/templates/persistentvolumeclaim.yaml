@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: {{ include "aidboxdb.fullname" . }}-data
+  labels:
+    {{- include "aidboxdb.labels" . | nindent 4 }}
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: {{ required "missing storageSize value" .Values.storageSize }}
+  {{- if .Values.storageClassName }}
+  storageClassName: {{ .Values.storageClassName }}
+  {{- end }}

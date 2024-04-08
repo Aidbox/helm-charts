@@ -1,0 +1,61 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "aidbox.fullname" . }}
+  labels:
+    {{- include "aidbox.labels" . | nindent 4 }}
+spec:
+  {{- if not .Values.autoscaling.enabled }}
+  replicas: {{ .Values.replicaCount }}
+  {{- end }}
+  selector:
+    matchLabels:
+      {{- include "aidbox.selectorLabels" . | nindent 6 }}
+  template:
+    metadata:
+      annotations:
+        checksum/config: {{ toJson .Values.config | sha256sum }}
+        checksum/secrets: {{ toJson .Values.secrets | sha256sum }}
+      labels:
+        {{- include "aidbox.labels" . | nindent 8 }}
+        {{- with .Values.podLabels }}
+        {{- toYaml . | nindent 8 }}
+        {{- end }}
+    spec:
+      containers:
+        - name: {{ .Chart.Name }}
+          securityContext:
+            {{- toYaml .Values.securityContext | nindent 12 }}
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          envFrom:
+            - configMapRef:
+                name: {{ include "aidbox.fullname" . }}
+            - secretRef:
+                name: {{ include "aidbox.fullname" . }}
+          ports:
+            - name: api
+              containerPort: {{ int .Values.config.AIDBOX_PORT }}
+              protocol: TCP
+            - name: metrics
+              containerPort: {{ int .Values.config.BOX_METRICS_PORT }}
+              protocol: TCP
+          startupProbe:
+            {{- toYaml .Values.startupProbe | nindent 12 }}
+          livenessProbe:
+            {{- toYaml .Values.livenessProbe | nindent 12 }}
+          readinessProbe:
+            {{- toYaml .Values.readinessProbe | nindent 12 }}
+          resources:
+            {{- toYaml .Values.resources | nindent 12 }}
+      affinity:
+        podAntiAffinity:
+          preferredDuringSchedulingIgnoredDuringExecution:
+            - weight: 100
+              podAffinityTerm:
+                labelSelector:
+                  matchLabels:
+                    {{- include "aidbox.selectorLabels" . | nindent 20 }}
+                topologyKey: "kubernetes.io/hostname"
+      securityContext:
+        {{- toYaml .Values.podSecurityContext | nindent 8 }}

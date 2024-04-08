@@ -1,0 +1,21 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ include "aidboxdb.fullname" . }}-files
+  labels:
+    {{- include "aidboxdb.labels" . | nindent 4 }}
+data:
+  postgres.conf: |-
+    listen_addresses = '*'
+    shared_buffers = {{ .Values.config.shared_buffers | squote }}
+    max_wal_size = {{ .Values.config.max_wal_size | squote }}
+    pg_stat_statements.max = 500
+    pg_stat_statements.save = false
+    pg_stat_statements.track = top
+    pg_stat_statements.track_utility = true
+    shared_preload_libraries = 'pg_stat_statements'
+    track_io_timing = on
+    wal_level = logical
+    wal_log_hints = on
+    archive_command = 'wal-g wal-push %p'
+    restore_command = 'wal-g wal-fetch %f %p'

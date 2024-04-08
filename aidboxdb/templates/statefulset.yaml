@@ -1,0 +1,63 @@
+{{- $fullName := include "aidboxdb.fullname" . -}}
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: {{ $fullName }}
+  labels:
+    {{- include "aidboxdb.labels" . | nindent 4 }}
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      {{- include "aidboxdb.selectorLabels" . | nindent 6 }}
+  template:
+    metadata:
+      {{- with .Values.podAnnotations }}
+      annotations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      labels:
+        {{- include "aidboxdb.labels" . | nindent 8 }}
+        {{- with .Values.podLabels }}
+        {{- toYaml . | nindent 8 }}
+        {{- end }}
+    spec:
+      {{- with .Values.imagePullSecrets }}
+      imagePullSecrets:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      securityContext:
+        {{- toYaml .Values.podSecurityContext | nindent 8 }}
+      containers:
+        - name: {{ .Chart.Name }}
+          securityContext:
+            {{- toYaml .Values.securityContext | nindent 12 }}
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          envFrom:
+            - configMapRef:
+                name: {{ $fullName }}-env
+            - secretRef:
+                name: {{ $fullName }}
+          volumeMounts:
+            - name: db-pg-config
+              mountPath: /etc/configs
+            - name: db-dshm
+              mountPath: /dev/shm
+            - name: db-data
+              mountPath: /data
+              subPath: pg
+          ports:
+            - containerPort: 5432
+              protocol: TCP
+      volumes:
+        - name: db-pg-config
+          configMap:
+            name: {{ $fullName }}-files
+            defaultMode: 420
+        - name: db-dshm
+          emptyDir:
+            medium: Memory
+        - name: db-data
+          persistentVolumeClaim:
+            claimName: {{ $fullName }}-data
