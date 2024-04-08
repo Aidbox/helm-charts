@@ -1,0 +1,14 @@
+apiVersion: v1
+entries:
+  aidbox:
+  - apiVersion: v2
+    appVersion: edge
+    created: "2024-04-08T15:32:18.442498616Z"
+    description: Aidbox
+    digest: e86c5be2be5ca6a374e3d362a92da779ddc93439801012ce559a9a21cca95523
+    name: aidbox
+    type: application
+    urls:
+    - https://github.com/Aidbox/helm-charts/releases/download/aidbox-0.1.1/aidbox-0.1.1.tgz
+    version: 0.1.1
+generated: "2024-04-08T15:32:18.442510468Z"
