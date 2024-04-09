@@ -1,0 +1,41 @@
+{{ template "chart.header" . }}
+
+[AidboxDB](https://docs.aidbox.app/storage-1/aidboxdb-image) is a specialized version of the open-source PostgreSQL database, tailored for use as the data storage backend for Aidbox. It serves various purposes, including initializing and operating as a master database for Aidbox, functioning as a streaming replica, optimizing FHIR search queries, and supporting backup and maintenance functionalities.
+
+{{ template "chart.versionBadge" . }}{{ template "chart.typeBadge" . }}{{ template "chart.appVersionBadge" . }}
+
+## Installation with the PostgreSQL default credentials
+
+```console
+helm upgrade --install aidboxdb aidboxdb \
+  --repo https://aidbox.github.io/helm-charts \
+  --namespace postgres --create-namespace
+```
+
+It will install the AidboxDB with default credentials in the `postgres` namespace, creating that namespace if it doesn't already exist.
+
+## Installation using custom PostgreSQL config and/or environment variables
+
+Create values YAML like
+
+```yaml
+config: |-
+  max_wal_size = '4GB'
+  shared_buffers = '2GB'
+
+env:
+  POSTGRES_USER: superuser
+  POSTGRES_PASSWORD: strongpassword
+```
+
+and apply it
+
+```console
+helm upgrade --install aidboxdb aidboxdb \
+  --repo https://aidbox.github.io/helm-charts \
+  --namespace postgres --create-namespace \
+  --values /path/to/values.yaml
+```
+
+
+{{ template "chart.valuesSection" . }}

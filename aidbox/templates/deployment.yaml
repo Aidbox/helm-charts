@@ -15,7 +15,6 @@ spec:
     metadata:
       annotations:
         checksum/config: {{ toJson .Values.config | sha256sum }}
-        checksum/secrets: {{ toJson .Values.secrets | sha256sum }}
       labels:
         {{- include "aidbox.labels" . | nindent 8 }}
         {{- with .Values.podLabels }}
