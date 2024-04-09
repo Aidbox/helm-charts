@@ -9,7 +9,7 @@ spec:
     - ReadWriteOnce
   resources:
     requests:
-      storage: {{ required "missing storageSize value" .Values.storageSize }}
-  {{- if .Values.storageClassName }}
-  storageClassName: {{ .Values.storageClassName }}
+      storage: {{ required "missing storage.size value" .Values.storage.size }}
+  {{- if .Values.storage.className }}
+  storageClassName: {{ .Values.storage.className }}
   {{- end }}
