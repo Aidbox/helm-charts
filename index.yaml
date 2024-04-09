@@ -3,6 +3,18 @@ entries:
   aidbox:
   - apiVersion: v2
     appVersion: edge
+    created: "2024-04-09T13:41:35.789385931Z"
+    description: Aidbox FHIR server by HealthSamurai
+    digest: 87fd0dcb3bc6330261d8921afae89ded8a9042de9c78d0a46cc80d0d9b94aca7
+    home: https://www.health-samurai.io/aidbox
+    icon: https://aidbox.github.io/helm-charts/icon.png?1712669999
+    name: aidbox
+    type: application
+    urls:
+    - https://github.com/Aidbox/helm-charts/releases/download/aidbox-0.1.4/aidbox-0.1.4.tgz
+    version: 0.1.4
+  - apiVersion: v2
+    appVersion: edge
     created: "2024-04-09T13:34:52.933106279Z"
     description: Aidbox FHIR server by HealthSamurai
     digest: fa31877a13e5c08e1f04e9bf6f270eca83a631d7006d9c19a1a13c1314498dae
@@ -35,6 +47,19 @@ entries:
     - https://github.com/Aidbox/helm-charts/releases/download/aidbox-0.1.1/aidbox-0.1.1.tgz
     version: 0.1.1
   aidboxdb:
+  - apiVersion: v2
+    appVersion: "16.1"
+    created: "2024-04-09T13:41:35.887795729Z"
+    description: AidboxDB is based on the official PostgreSQL and adapted to work
+      with Aidbox.
+    digest: 4d7c44db3329d467a5bdedc7e37363d51ad402a39d18a7639ec31822b6ba3361
+    home: https://www.health-samurai.io/aidbox
+    icon: https://aidbox.github.io/helm-charts/icon.png?1712669999
+    name: aidboxdb
+    type: application
+    urls:
+    - https://github.com/Aidbox/helm-charts/releases/download/aidboxdb-0.1.4/aidboxdb-0.1.4.tgz
+    version: 0.1.4
   - apiVersion: v2
     appVersion: "16.1"
     created: "2024-04-09T13:34:53.043140792Z"
@@ -70,4 +95,4 @@ entries:
     urls:
     - https://github.com/Aidbox/helm-charts/releases/download/aidboxdb-0.1.1/aidboxdb-0.1.1.tgz
     version: 0.1.1
-generated: "2024-04-09T13:34:53.043165348Z"
+generated: "2024-04-09T13:41:35.887822368Z"
