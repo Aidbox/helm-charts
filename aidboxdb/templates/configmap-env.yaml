@@ -5,5 +5,8 @@ metadata:
   labels:
     {{- include "aidboxdb.labels" . | nindent 4 }}
 data:
-  PGDATA: /data/pg
-  POSTGRES_DB: postgres
+  {{- range $key, $val := .Values.env }}
+  {{- if and (not (eq $key "POSTGRES_USER")) (not (eq $key "POSTGRES_PASSWORD")) }}
+  {{ $key }}: {{ $val | quote }}
+  {{- end }}
+  {{- end }}

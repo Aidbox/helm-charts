@@ -1,6 +1,7 @@
 apiVersion: v2
 appVersion: edge
-description: Aidbox
+description: Aidbox FHIR server by HealthSamurai
+home: https://www.health-samurai.io/aidbox
 name: aidbox
 type: application
-version: 0.1.1
+version: 0.1.2

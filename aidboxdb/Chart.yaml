@@ -1,6 +1,7 @@
 apiVersion: v2
 appVersion: "16.1"
-description: AidboxDB
+description: AidboxDB is based on the official PostgreSQL and adapted to work with Aidbox.
+home: https://www.health-samurai.io/aidbox
 name: aidboxdb
 type: application
-version: 0.1.1
+version: 0.1.2

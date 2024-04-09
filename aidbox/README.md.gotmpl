@@ -1,0 +1,39 @@
+{{ template "chart.header" . }}
+{{ template "chart.description" . }}
+
+{{ template "chart.versionBadge" . }}{{ template "chart.typeBadge" . }}{{ template "chart.appVersionBadge" . }}
+
+## Installation
+
+Prepare the configuration file. Please refer to the [Aidbox environment variables](https://docs.aidbox.app/reference/configuration/environment-variables) for details.
+
+```yaml
+host: <your host here, e.g. my.domain.tld>
+protocol: <http or https>
+
+config:
+  AIDBOX_FHIR_VERSION: <FHIR version, e.g. 4.0.0>
+  PGDATABASE: <name of the database that is used to store resources>
+  PGHOST: <PostgreSQL host to connect to>
+
+secrets:
+  AIDBOX_ADMIN_ID: <root user resource id to create on startup>
+  AIDBOX_ADMIN_PASSWORD: <password for the root user>
+  AIDBOX_CLIENT_ID: <root client resource id to create on startup>
+  AIDBOX_CLIENT_SECRET: <secret for the root client>
+  AIDBOX_LICENSE: <license JWT obtained from the license server>
+  PGUSER: <PostgreSQL user>
+  PGPASSWORD: <PostgreSQL password>
+```
+
+
+```console
+helm upgrade --install aidbox aidbox \
+  --repo https://aidbox.github.io/helm-charts \
+  --namespace aidbox --create-namespace \
+  --values /path/to/config/file
+```
+
+It will install the Aidbox in the `aidbox` namespace, creating that namespace if it doesn't already exist.
+
+{{ template "chart.valuesSection" . }}
