@@ -1,26 +1,14 @@
+# -- Host name Aidbox will be available at
 host: my.domain.tld
+# -- Protocol to be used to access Aidbox (http or https)
 protocol: http
 
+# -- Aidbox config
+# see [Aidbox environment variables](https://docs.aidbox.app/reference/configuration/environment-variables) for details
 config:
-  AIDBOX_BOX_ID: aidbox
   AIDBOX_PORT: 8080
-  BOX_INSTANCE_NAME: aidbox
   BOX_METRICS_PORT: 8765
-  PGDATABASE: aidbox
   PGPORT: 5432
-
-secrets:
-  AIDBOX_ADMIN_ID: admin
-  AIDBOX_ADMIN_PASSWORD: ""
-  AIDBOX_CLIENT_ID: admin
-  AIDBOX_CLIENT_SECRET: ""
-  # AIDBOX_LICENSE: ""
-  # or
-  # AIDBOX_LICENSE_ID: ""
-  # AIDBOX_LICENSE_KEY: ""
-  PGUSER: ""
-  PGPASSWORD: ""
-
 
 image:
   repository: healthsamurai/aidboxone

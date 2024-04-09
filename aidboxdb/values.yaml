@@ -1,18 +1,27 @@
-config:
-  max_wal_size: 4GB
-  shared_buffers: 2GB
+# -- PostgreSQL config
+config: |-
+  max_wal_size = '4GB'
+  shared_buffers = '2GB'
 
+# -- Environment variables
+# @default -- [AidboxDB environment variables](https://docs.aidbox.app/reference/configuration/environment-variables/aidboxdb-environment-variables)
 env:
-  PGUSER: postgres
-  PGPASSWORD: postgres
+  PGDATA: /data/pg
+  POSTGRES_PASSWORD: postgres
+  POSTGRES_USER: postgres
+  POSTGRES_DB: postgres
 
-storageClassName: ""
-storageSize: 300Gi
+storage:
+  # -- Storage className to use
+  className: ""
+  # -- Storage volume size request
+  size: 300Gi
 
 image:
   repository: healthsamurai/aidboxdb
   pullPolicy: IfNotPresent
-  # Overrides the image tag whose default is the chart appVersion.
+  # -- Overrides the image tag whose default is the chart appVersion.
+  # Has one-to-one mapping to the PostgreSQL version.
   tag: ""
 
 imagePullSecrets: []
@@ -30,14 +39,14 @@ securityContext: {}
   # runAsNonRoot: true
   # runAsUser: 1000
 
-# Additional volumes on the output StatefulSet definition.
+# -- Additional volumes
 volumes: []
 # - name: foo
 #   secret:
 #     secretName: mysecret
 #     optional: false
 
-# Additional volumeMounts on the output StatefulSet definition.
+# -- Additional volume mounts
 volumeMounts: []
 # - name: foo
 #   mountPath: "/etc/foo"
