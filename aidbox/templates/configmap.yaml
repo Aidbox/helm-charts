@@ -6,9 +6,13 @@ metadata:
     {{- include "aidbox.labels" . | nindent 4 }}
 data:
   {{- range $key, $val := .Values.config }}
-  {{- if and (ne $key "PGUSER") (ne $key "PGPASSWORD") (ne $key "AIDBOX_CLIENT_ID") (ne $key "AIDBOX_CLIENT_SECRET") (ne $key "AIDBOX_ADMIN_ID") (ne $key "AIDBOX_ADMIN_PASSWORD") (ne $key "AIDBOX_LICENSE") }}
+  {{- if and (ne $key "PGUSER") (ne $key "PGPASSWORD") (ne $key "AIDBOX_CLIENT_ID") (ne $key "AIDBOX_CLIENT_SECRET") (ne $key "AIDBOX_ADMIN_ID") (ne $key "AIDBOX_ADMIN_PASSWORD") (ne $key "AIDBOX_LICENSE") (ne $key "AIDBOX_FHIR_VERSION") (ne $key "PGHOST") (ne $key "PGPORT") (ne $key "AIDBOX_PORT") (ne $key "PGDATABASE") }}
   {{ $key }}: {{ $val | quote }}
   {{- end }}
   {{- end }}
   AIDBOX_BASE_URL: {{ required "missing protocol value" .Values.protocol }}://{{ required "missing host value" .Values.host }}
+  AIDBOX_FHIR_VERSION: {{ required "missing config AIDBOX_FHIR_VERSION value" .Values.config.AIDBOX_FHIR_VERSION | quote }}
+  AIDBOX_PORT: {{ required "missing config AIDBOX_PORT value" .Values.config.AIDBOX_PORT | quote }}
+  PGDATABASE: {{ required "missing config PGDATABASE value" .Values.config.PGDATABASE | quote }}
   PGHOST: {{ required "missing config PGHOST value" .Values.config.PGHOST | quote }}
+  PGPORT: {{ required "missing config PGPORT value" .Values.config.PGPORT | quote }}

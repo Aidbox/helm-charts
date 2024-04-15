@@ -4,11 +4,16 @@
 
 {{ template "chart.versionBadge" . }}{{ template "chart.typeBadge" . }}{{ template "chart.appVersionBadge" . }}
 
+## Add the helm repository
+
+```console
+helm repo add aidbox https://aidbox.github.io/helm-charts
+```
+
 ## Installation with the PostgreSQL default credentials
 
 ```console
 helm upgrade --install aidboxdb aidboxdb \
-  --repo https://aidbox.github.io/helm-charts \
   --namespace postgres --create-namespace
 ```
 
@@ -32,10 +37,14 @@ and apply it
 
 ```console
 helm upgrade --install aidboxdb aidboxdb \
-  --repo https://aidbox.github.io/helm-charts \
   --namespace postgres --create-namespace \
   --values /path/to/values.yaml
 ```
+
+## Database backup
+
+AidboxDB image contains [WAL-G](https://github.com/wal-g/wal-g). For more information see [documentation](https://docs.aidbox.app/storage-1/backup-and-restore/archiving)
+
 
 
 {{ template "chart.valuesSection" . }}

@@ -6,7 +6,8 @@
 
 ## Installation
 
-Prepare the configuration file. Please refer to the [Aidbox environment variables](https://docs.aidbox.app/reference/configuration/environment-variables) for details.
+1. Obtain a [license](https://docs.aidbox.app/~/changes/cP0dGveACDeqsL8PvFlu/overview/editions-and-pricing#aidbox-licenses).
+2. Prepare the configuration file. Please refer to the [Aidbox environment variables](https://docs.aidbox.app/reference/configuration/environment-variables) for details.
 
 ```yaml
 host: <your host here, e.g. my.domain.tld>
@@ -27,8 +28,9 @@ config:
 
 
 ```console
+helm repo add aidbox https://aidbox.github.io/helm-charts
+
 helm upgrade --install aidbox aidbox \
-  --repo https://aidbox.github.io/helm-charts \
   --namespace aidbox --create-namespace \
   --values /path/to/config/file
 ```

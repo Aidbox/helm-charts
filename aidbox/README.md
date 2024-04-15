@@ -2,11 +2,12 @@
 
 [Aidbox](https://docs.aidbox.app/) is an efficient and scalable FHIR server built to handle healthcare data effectively, empowering healthcare providers and developers alike with its comprehensive platform for storing, accessing, and exchanging healthcare information in accordance with FHIR standards.
 
-![Version: 0.1.5](https://img.shields.io/badge/Version-0.1.5-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: edge](https://img.shields.io/badge/AppVersion-edge-informational?style=flat-square)
+![Version: 0.1.6](https://img.shields.io/badge/Version-0.1.6-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: edge](https://img.shields.io/badge/AppVersion-edge-informational?style=flat-square)
 
 ## Installation
 
-Prepare the configuration file. Please refer to the [Aidbox environment variables](https://docs.aidbox.app/reference/configuration/environment-variables) for details.
+1. Obtain a [license](https://docs.aidbox.app/~/changes/cP0dGveACDeqsL8PvFlu/overview/editions-and-pricing#aidbox-licenses).
+2. Prepare the configuration file. Please refer to the [Aidbox environment variables](https://docs.aidbox.app/reference/configuration/environment-variables) for details.
 
 ```yaml
 host: <your host here, e.g. my.domain.tld>
@@ -26,8 +27,9 @@ config:
 ```
 
 ```console
+helm repo add aidbox https://aidbox.github.io/helm-charts
+
 helm upgrade --install aidbox aidbox \
-  --repo https://aidbox.github.io/helm-charts \
   --namespace aidbox --create-namespace \
   --values /path/to/config/file
 ```

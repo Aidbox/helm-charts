@@ -30,5 +30,5 @@ spec:
               service:
                 name: {{ $fullName }}-api
                 port:
-                  number: {{ int .Values.config.AIDBOX_PORT }}
+                  number: {{ int .Values.service.apiPort }}
 {{- end }}
