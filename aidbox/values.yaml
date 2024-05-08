@@ -98,3 +98,6 @@ securityContext:
   #   drop:
   #   - ALL
   # readOnlyRootFilesystem: true
+
+extraEnvFromConfigMaps: []
+extraEnvFromSecrets: []

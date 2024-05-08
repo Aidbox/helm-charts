@@ -32,6 +32,14 @@ spec:
                 name: {{ include "aidbox.fullname" . }}
             - secretRef:
                 name: {{ include "aidbox.fullname" . }}
+            {{- range .Values.extraEnvFromConfigMaps }}
+            - configMapRef:
+                name: {{ . }}
+            {{- end }}
+            {{- range .Values.extraEnvFromSecrets }}
+            - secretRef:
+                name: {{ . }}
+            {{- end }}
           ports:
             - name: api
               containerPort: {{ int .Values.config.AIDBOX_PORT }}
