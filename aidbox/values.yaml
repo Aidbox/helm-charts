@@ -44,6 +44,9 @@ startupProbe:
   periodSeconds:  5
   failureThreshold: 10
 
+serviceMonitor:
+  enabled: false
+
 # Additional volumes on the output Deployment definition.
 volumes: []
 # - name: foo
