@@ -45,6 +45,8 @@ It will install the Aidbox in the `aidbox` namespace, creating that namespace if
 | autoscaling.minReplicas | int | `1` |  |
 | autoscaling.targetCPUUtilizationPercentage | int | `80` |  |
 | config | object | `{"AIDBOX_PORT":8080,"BOX_METRICS_PORT":8765,"PGPORT":5432}` | Aidbox config see [Aidbox environment variables](https://docs.aidbox.app/reference/configuration/environment-variables) for details |
+| extraEnvFromConfigMaps | list | `[]` |  |
+| extraEnvFromSecrets | list | `[]` |  |
 | fullnameOverride | string | `""` |  |
 | host | string | `"my.domain.tld"` | Host name Aidbox will be available at |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
@@ -75,6 +77,7 @@ It will install the Aidbox in the `aidbox` namespace, creating that namespace if
 | service.apiPort | int | `80` |  |
 | service.metricsPort | int | `80` |  |
 | service.type | string | `"ClusterIP"` |  |
+| serviceMonitor.enabled | bool | `false` |  |
 | startupProbe.failureThreshold | int | `10` |  |
 | startupProbe.httpGet.path | string | `"/health"` |  |
 | startupProbe.httpGet.port | string | `"api"` |  |
