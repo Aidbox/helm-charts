@@ -29,7 +29,7 @@ config:
 ```console
 helm repo add aidbox https://aidbox.github.io/helm-charts
 
-helm upgrade --install aidbox aidbox \
+helm upgrade --install aidbox aidbox/aidbox \
   --namespace aidbox --create-namespace \
   --values /path/to/config/file
 ```

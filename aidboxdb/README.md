@@ -13,7 +13,7 @@ helm repo add aidbox https://aidbox.github.io/helm-charts
 ## Installation with the PostgreSQL default credentials
 
 ```console
-helm upgrade --install aidboxdb aidboxdb \
+helm upgrade --install aidboxdb aidbox/aidboxdb \
   --namespace postgres --create-namespace
 ```
 
@@ -36,7 +36,7 @@ env:
 and apply it
 
 ```console
-helm upgrade --install aidboxdb aidboxdb \
+helm upgrade --install aidboxdb aidbox/aidboxdb \
   --namespace postgres --create-namespace \
   --values /path/to/values.yaml
 ```
