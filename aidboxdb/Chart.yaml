@@ -5,4 +5,4 @@ home: https://www.health-samurai.io/aidbox
 icon: https://aidbox.github.io/helm-charts/icon.png?1712669999
 name: aidboxdb
 type: application
-version: 0.1.6
+version: 0.1.7
