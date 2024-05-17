@@ -3,6 +3,18 @@ entries:
   aidbox:
   - apiVersion: v2
     appVersion: edge
+    created: "2024-05-17T07:01:01.209205904Z"
+    description: Aidbox is FHIR backend platform by Health Samurai
+    digest: c37c490c1402d3f177c1b213798ac342690ad6e54bce2d5d3a6d0059ffe21ac1
+    home: https://www.health-samurai.io/aidbox
+    icon: https://aidbox.github.io/helm-charts/icon.png?1712669999
+    name: aidbox
+    type: application
+    urls:
+    - https://github.com/Aidbox/helm-charts/releases/download/aidbox-0.1.8/aidbox-0.1.8.tgz
+    version: 0.1.8
+  - apiVersion: v2
+    appVersion: edge
     created: "2024-05-08T14:14:37.580142677Z"
     description: Aidbox is FHIR backend platform by Health Samurai
     digest: e5b8ff7141c1fd899e74c2034dafd5a2a53e134c5983846ae330eb05c4e25092
@@ -85,6 +97,19 @@ entries:
   aidboxdb:
   - apiVersion: v2
     appVersion: "16.1"
+    created: "2024-05-17T07:01:01.334853329Z"
+    description: AidboxDB is based on the official PostgreSQL and contains additional
+      tools
+    digest: 5c9fbd661afe88f470fe2200c42dfe27d527ac8050f91ff4ac41cca86ab4263a
+    home: https://www.health-samurai.io/aidbox
+    icon: https://aidbox.github.io/helm-charts/icon.png?1712669999
+    name: aidboxdb
+    type: application
+    urls:
+    - https://github.com/Aidbox/helm-charts/releases/download/aidboxdb-0.1.7/aidboxdb-0.1.7.tgz
+    version: 0.1.7
+  - apiVersion: v2
+    appVersion: "16.1"
     created: "2024-04-15T10:43:19.536452443Z"
     description: AidboxDB is based on the official PostgreSQL and contains additional
       tools
@@ -157,4 +182,4 @@ entries:
     urls:
     - https://github.com/Aidbox/helm-charts/releases/download/aidboxdb-0.1.1/aidboxdb-0.1.1.tgz
     version: 0.1.1
-generated: "2024-05-08T14:14:37.580182741Z"
+generated: "2024-05-17T07:01:01.334982148Z"
