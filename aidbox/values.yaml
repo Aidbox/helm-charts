@@ -100,3 +100,7 @@ securityContext:
 
 extraEnvFromConfigMaps: []
 extraEnvFromSecrets: []
+
+serviceAccount:
+  # -- ServiceAccount to use
+  name: ""
