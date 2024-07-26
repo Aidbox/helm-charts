@@ -25,7 +25,7 @@ spec:
       http:
         paths:
           - path: /
-            pathType: ImplementationSpecific
+            pathType: {{ .Values.ingress.pathType | default "ImplementationSpecific" | quote }}
             backend:
               service:
                 name: {{ $fullName }}-api
