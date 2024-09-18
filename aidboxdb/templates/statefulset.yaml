@@ -6,6 +6,7 @@ metadata:
   labels:
     {{- include "aidboxdb.labels" . | nindent 4 }}
 spec:
+  serviceName: {{ include "aidboxdb.fullname" . }}
   replicas: 1
   selector:
     matchLabels:
