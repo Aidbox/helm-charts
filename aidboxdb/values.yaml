@@ -22,8 +22,14 @@ image:
   # -- Overrides the image tag whose default is the chart appVersion.
   # Has one-to-one mapping to the PostgreSQL version.
   tag: ""
-  
+
 resources: {}
+  # limits:
+  #  cpu: 8
+  #  memory: 128Gi
+  # requests:
+  #  cpu: 1
+  #  memory: 2Gi
 
 imagePullSecrets: []
 nameOverride: ""
