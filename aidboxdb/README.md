@@ -2,7 +2,7 @@
 
 [AidboxDB](https://docs.aidbox.app/storage-1/aidboxdb-image) is a specialized version of the open-source PostgreSQL database, tailored for use as the data storage backend for Aidbox. It serves various purposes, including initializing and operating as a master database for Aidbox, functioning as a streaming replica, optimizing FHIR search queries, and supporting backup and maintenance functionalities.
 
-![Version: 0.1.8](https://img.shields.io/badge/Version-0.1.8-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 16.1](https://img.shields.io/badge/AppVersion-16.1-informational?style=flat-square)
+![Version: 0.1.9](https://img.shields.io/badge/Version-0.1.9-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 16.1](https://img.shields.io/badge/AppVersion-16.1-informational?style=flat-square)
 
 ## Add the helm repository
 
