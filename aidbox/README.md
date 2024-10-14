@@ -2,7 +2,7 @@
 
 [Aidbox](https://docs.aidbox.app/) is an efficient and scalable FHIR server built to handle healthcare data effectively, empowering healthcare providers and developers alike with its comprehensive platform for storing, accessing, and exchanging healthcare information in accordance with FHIR standards.
 
-![Version: 0.1.13](https://img.shields.io/badge/Version-0.1.13-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: edge](https://img.shields.io/badge/AppVersion-edge-informational?style=flat-square)
+![Version: 0.1.14](https://img.shields.io/badge/Version-0.1.14-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: edge](https://img.shields.io/badge/AppVersion-edge-informational?style=flat-square)
 
 ## Installation
 
