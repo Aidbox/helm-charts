@@ -105,3 +105,6 @@ extraEnvFromSecrets: []
 serviceAccount:
   # -- ServiceAccount to use
   name: ""
+  
+updateStrategy:
+  type: RollingUpdate
