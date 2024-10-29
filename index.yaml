@@ -180,6 +180,19 @@ entries:
     version: 0.1.1
   aidboxdb:
   - apiVersion: v2
+    appVersion: "17"
+    created: "2024-10-29T12:21:14.424166571Z"
+    description: AidboxDB is based on the official PostgreSQL and contains additional
+      tools
+    digest: 5ca1902a2f14c5e45f4dacf4a039edbc18fa42b1a7968f9e2b6b6e27c97bbc25
+    home: https://www.health-samurai.io/aidbox
+    icon: https://aidbox.github.io/helm-charts/icon.png?1712669999
+    name: aidboxdb
+    type: application
+    urls:
+    - https://github.com/Aidbox/helm-charts/releases/download/aidboxdb-0.1.10/aidboxdb-0.1.10.tgz
+    version: 0.1.10
+  - apiVersion: v2
     appVersion: "16.1"
     created: "2024-09-22T07:45:46.123043102Z"
     description: AidboxDB is based on the official PostgreSQL and contains additional
@@ -292,4 +305,4 @@ entries:
     urls:
     - https://github.com/Aidbox/helm-charts/releases/download/aidboxdb-0.1.1/aidboxdb-0.1.1.tgz
     version: 0.1.1
-generated: "2024-10-14T15:00:59.099211131Z"
+generated: "2024-10-29T12:21:14.424277557Z"
