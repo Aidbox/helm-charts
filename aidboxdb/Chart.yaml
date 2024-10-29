@@ -1,8 +1,8 @@
 apiVersion: v2
-appVersion: "16.1"
+appVersion: "17"
 description: AidboxDB is based on the official PostgreSQL and contains additional tools
 home: https://www.health-samurai.io/aidbox
 icon: https://aidbox.github.io/helm-charts/icon.png?1712669999
 name: aidboxdb
 type: application
-version: 0.1.9
+version: 0.1.10
