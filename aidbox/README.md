@@ -2,7 +2,7 @@
 
 [Aidbox](https://docs.aidbox.app/) is an efficient and scalable FHIR server built to handle healthcare data effectively, empowering healthcare providers and developers alike with its comprehensive platform for storing, accessing, and exchanging healthcare information in accordance with FHIR standards.
 
-![Version: 0.1.15](https://img.shields.io/badge/Version-0.1.15-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: edge](https://img.shields.io/badge/AppVersion-edge-informational?style=flat-square)
+![Version: 0.1.16](https://img.shields.io/badge/Version-0.1.16-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: edge](https://img.shields.io/badge/AppVersion-edge-informational?style=flat-square)
 
 ## Installation
 
@@ -85,5 +85,6 @@ It will install the Aidbox in the `aidbox` namespace, creating that namespace if
 | startupProbe.httpGet.port | string | `"api"` |  |
 | startupProbe.initialDelaySeconds | int | `20` |  |
 | startupProbe.periodSeconds | int | `5` |  |
+| updateStrategy.type | string | `"RollingUpdate"` |  |
 | volumeMounts | list | `[]` |  |
 | volumes | list | `[]` |  |

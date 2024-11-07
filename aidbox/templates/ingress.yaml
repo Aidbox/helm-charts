@@ -1,5 +1,6 @@
 {{- if .Values.ingress.enabled -}}
 {{- $fullName := include "aidbox.fullname" . -}}
+{{- $host := or .Values.config.AIDBOX_CLUSTER_DOMAIN .Values.host }}
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
@@ -17,11 +18,14 @@ spec:
   {{- if eq .Values.protocol "https" }}
   tls:
     - hosts:
-        - {{ .Values.host | quote }}
+        - {{ $host }}
+        {{- if .Values.config.AIDBOX_CLUSTER_DOMAIN }}
+        - "*.{{ .Values.config.AIDBOX_CLUSTER_DOMAIN }}"
+        {{- end }}
       secretName: {{ $fullName }}-tls
   {{- end }}
   rules:
-    - host: {{ .Values.host | quote }}
+    - host: {{ $host }}
       http:
         paths:
           - path: {{ .Values.ingress.defaultPath | default "/" | quote }}
@@ -31,4 +35,16 @@ spec:
                 name: {{ $fullName }}-api
                 port:
                   number: {{ int .Values.service.apiPort }}
+    {{- if .Values.config.AIDBOX_CLUSTER_DOMAIN }}
+    - host: "*.{{ .Values.config.AIDBOX_CLUSTER_DOMAIN }}"
+      http:
+        paths:
+          - path: {{ .Values.ingress.defaultPath | default "/" | quote }}
+            pathType: {{ .Values.ingress.pathType | default "ImplementationSpecific" | quote }}
+            backend:
+              service:
+                name: {{ $fullName }}-api
+                port:
+                  number: {{ int .Values.service.apiPort }}
+    {{- end }}
 {{- end }}

@@ -10,7 +10,7 @@ data:
   {{ $key }}: {{ $val | quote }}
   {{- end }}
   {{- end }}
-  AIDBOX_BASE_URL: {{ required "missing protocol value" .Values.protocol }}://{{ required "missing host value" .Values.host }}
+  AIDBOX_BASE_URL: {{ required "missing protocol value" .Values.protocol }}://{{ or .Values.config.AIDBOX_CLUSTER_DOMAIN (required "missing host value" .Values.host) }}
   {{- if .Values.config.AIDBOX_FHIR_SCHEMA_VALIDATION }}
   AIDBOX_FHIR_SCHEMA_VALIDATION: "true"
   {{- else }}
