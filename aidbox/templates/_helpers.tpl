@@ -60,3 +60,12 @@ Create the name of the service account to use
 {{- default "default" .Values.serviceAccount.name }}
 {{- end }}
 {{- end }}
+
+{{/* Create the secret name for Aidbox, using existingSecret if set */}}
+{{- define "aidbox.secretName" -}}
+{{- if .Values.auth.existingSecret -}}
+{{ .Values.auth.existingSecret }}
+{{- else -}}
+{{ include "aidbox.fullname" . }}
+{{- end -}}
+{{- end -}}

@@ -46,7 +46,7 @@ spec:
             - configMapRef:
                 name: {{ $fullName }}-env
             - secretRef:
-                name: {{ $fullName }}
+                name: {{ include "aidboxdb.secretName" . }}
           volumeMounts:
             - name: db-pg-config
               mountPath: /etc/configs

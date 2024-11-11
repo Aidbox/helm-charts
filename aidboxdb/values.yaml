@@ -10,6 +10,9 @@ env:
   POSTGRES_USER: postgres
   POSTGRES_DB: postgres
 
+auth:
+  existingSecret: ""
+
 storage:
   # -- Storage className to use
   className: ""

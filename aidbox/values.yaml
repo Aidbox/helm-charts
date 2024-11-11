@@ -10,6 +10,9 @@ config:
   BOX_METRICS_PORT: 8765
   PGPORT: 5432
 
+auth:
+  existingSecret: ""
+
 image:
   repository: healthsamurai/aidboxone
   pullPolicy: IfNotPresent
