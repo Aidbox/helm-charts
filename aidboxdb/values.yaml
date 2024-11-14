@@ -10,9 +10,6 @@ env:
   POSTGRES_USER: postgres
   POSTGRES_DB: postgres
 
-auth:
-  existingSecret: ""
-
 storage:
   # -- Storage className to use
   className: ""
@@ -49,6 +46,8 @@ securityContext: {}
   # readOnlyRootFilesystem: true
   # runAsNonRoot: true
   # runAsUser: 1000
+
+extraEnvFromSecrets: []
 
 # -- Additional volumes
 volumes: []
