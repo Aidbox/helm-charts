@@ -2,7 +2,7 @@
 
 [AidboxDB](https://docs.aidbox.app/storage-1/aidboxdb-image) is a specialized version of the open-source PostgreSQL database, tailored for use as the data storage backend for Aidbox. It serves various purposes, including initializing and operating as a master database for Aidbox, functioning as a streaming replica, optimizing FHIR search queries, and supporting backup and maintenance functionalities.
 
-![Version: 0.1.10](https://img.shields.io/badge/Version-0.1.10-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 17](https://img.shields.io/badge/AppVersion-17-informational?style=flat-square)
+![Version: 0.1.11](https://img.shields.io/badge/Version-0.1.11-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 17](https://img.shields.io/badge/AppVersion-17-informational?style=flat-square)
 
 ## Add the helm repository
 
@@ -51,6 +51,7 @@ AidboxDB image contains [WAL-G](https://github.com/wal-g/wal-g). For more inform
 |-----|------|---------|-------------|
 | config | string | `"max_wal_size = '4GB'\nshared_buffers = '2GB'"` | PostgreSQL config |
 | env | object | `{"PGDATA":"/data/pg","POSTGRES_DB":"postgres","POSTGRES_PASSWORD":"postgres","POSTGRES_USER":"postgres"}` | [AidboxDB environment variables](https://docs.aidbox.app/reference/configuration/environment-variables/aidboxdb-environment-variables) |
+| extraEnvFromSecrets | list | `[]` |  |
 | fullnameOverride | string | `""` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"healthsamurai/aidboxdb"` |  |
