@@ -32,7 +32,7 @@ spec:
             - configMapRef:
                 name: {{ include "aidbox.fullname" . }}
             - secretRef:
-                name: {{ include "aidbox.secretName" . }}
+                name: {{ include "aidbox.fullname" . }}
             {{- range .Values.extraEnvFromConfigMaps }}
             - configMapRef:
                 name: {{ . }}
