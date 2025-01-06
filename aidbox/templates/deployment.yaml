@@ -67,6 +67,10 @@ spec:
       volumes:
         {{- toYaml . | nindent 8 }}
       {{- end }}
+      {{- if .Values.affinity }}
+      affinity:
+        {{- toYaml .Values.affinity | nindent 8 }}
+      {{- else }}
       affinity:
         podAntiAffinity:
           preferredDuringSchedulingIgnoredDuringExecution:
@@ -76,5 +80,10 @@ spec:
                   matchLabels:
                     {{- include "aidbox.selectorLabels" . | nindent 20 }}
                 topologyKey: "kubernetes.io/hostname"
+      {{- end }}
       securityContext:
         {{- toYaml .Values.podSecurityContext | nindent 8 }}
+      {{- with .Values.tolerations }}
+      tolerations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}

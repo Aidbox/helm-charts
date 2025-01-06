@@ -2,7 +2,7 @@
 
 [Aidbox](https://docs.aidbox.app/) is an efficient and scalable FHIR server built to handle healthcare data effectively, empowering healthcare providers and developers alike with its comprehensive platform for storing, accessing, and exchanging healthcare information in accordance with FHIR standards.
 
-![Version: 0.1.16](https://img.shields.io/badge/Version-0.1.16-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: edge](https://img.shields.io/badge/AppVersion-edge-informational?style=flat-square)
+![Version: 0.1.17](https://img.shields.io/badge/Version-0.1.17-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: edge](https://img.shields.io/badge/AppVersion-edge-informational?style=flat-square)
 
 ## Installation
 
@@ -40,6 +40,7 @@ It will install the Aidbox in the `aidbox` namespace, creating that namespace if
 
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
+| affinity | object | `{}` |  |
 | autoscaling.enabled | bool | `false` |  |
 | autoscaling.maxReplicas | int | `100` |  |
 | autoscaling.minReplicas | int | `1` |  |
@@ -85,6 +86,7 @@ It will install the Aidbox in the `aidbox` namespace, creating that namespace if
 | startupProbe.httpGet.port | string | `"api"` |  |
 | startupProbe.initialDelaySeconds | int | `20` |  |
 | startupProbe.periodSeconds | int | `5` |  |
+| tolerations | list | `[]` |  |
 | updateStrategy.type | string | `"RollingUpdate"` |  |
 | volumeMounts | list | `[]` |  |
 | volumes | list | `[]` |  |
