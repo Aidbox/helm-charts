@@ -1,0 +1,24 @@
+{{ template "chart.header" . }}
+
+{{ template "chart.versionBadge" . }}{{ template "chart.typeBadge" . }}{{ template "chart.appVersionBadge" . }}
+
+## Installation
+
+1. Prepare the configuration file.
+
+```yaml
+elasticUri: ""
+```
+
+
+```console
+helm repo add aidbox https://aidbox.github.io/helm-charts
+
+helm upgrade --install auditbox aidbox/auditbox \
+  --namespace auditbox --create-namespace \
+  --values /path/to/config/file
+```
+
+It will install the Auditbox in the `auditbox` namespace, creating that namespace if it doesn't already exist.
+
+{{ template "chart.valuesSection" . }}
