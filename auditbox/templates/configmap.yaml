@@ -6,4 +6,8 @@ metadata:
     {{- include "auditbox.labels" . | nindent 4 }}
 data:
   BINDING: 0.0.0.0
-  ELASTIC_URI: {{ required "missing config ELASTIC_URI value" .Values.elasticUri | quote }}
+  {{- range $key, $val := .Values.config }}
+  {{- if (ne $key "IDP_CLIENT_SECRET") }}
+  {{ $key }}: {{ $val | quote }}
+  {{- end }}
+  {{- end }}

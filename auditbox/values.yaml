@@ -5,8 +5,6 @@ image:
   pullPolicy: IfNotPresent
   tag: "alpha"
 
-elasticUri: ""
-
 imagePullSecrets: []
 nameOverride: ""
 fullnameOverride: ""
@@ -81,5 +79,8 @@ autoscaling:
 nodeSelector: {}
 
 tolerations: []
+
+extraEnvFromConfigMaps: []
+extraEnvFromSecrets: []
 
 affinity: {}

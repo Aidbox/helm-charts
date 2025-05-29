@@ -7,7 +7,14 @@
 1. Prepare the configuration file.
 
 ```yaml
-elasticUri: ""
+extraEnvFromSecrets: ["auditbox"]
+config:
+  ELASTIC_URI: <Elastic URI>
+  AUDITBOX_BASE_URL: <Auditbox Base URL>
+  IDP_AUTHORIZE_ENDPOINT: <IDP Authorize Endpoint>
+  IDP_TOKEN_ENDPOINT: <IDP Token Endpoint>
+  IDP_CLIENT_ID: <IDP Client ID>
+  IDP_CLIENT_SECRET: <IDP Client Secret>
 ```
 
 ```console
@@ -29,7 +36,8 @@ It will install the Auditbox in the `auditbox` namespace, creating that namespac
 | autoscaling.maxReplicas | int | `100` |  |
 | autoscaling.minReplicas | int | `1` |  |
 | autoscaling.targetCPUUtilizationPercentage | int | `80` |  |
-| elasticUri | string | `""` |  |
+| extraEnvFromConfigMaps | list | `[]` |  |
+| extraEnvFromSecrets | list | `[]` |  |
 | fullnameOverride | string | `""` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"healthsamurai/auditbox"` |  |
