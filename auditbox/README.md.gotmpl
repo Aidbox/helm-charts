@@ -7,7 +7,6 @@
 1. Prepare the configuration file.
 
 ```yaml
-extraEnvFromSecrets: ["auditbox"]
 config:
   ELASTIC_URI: <Elastic URI>
   AUDITBOX_BASE_URL: <Auditbox Base URL>
