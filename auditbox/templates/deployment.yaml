@@ -43,6 +43,8 @@ spec:
           envFrom:
             - configMapRef:
                 name: {{ include "auditbox.fullname" . }}
+            - secretRef:
+                name: {{ include "auditbox.fullname" . }}
             {{- range .Values.extraEnvFromConfigMaps }}
             - configMapRef:
                 name: {{ . }}
