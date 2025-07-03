@@ -366,4 +366,15 @@ entries:
     urls:
     - https://github.com/Aidbox/helm-charts/releases/download/auditbox-0.1.0/auditbox-0.1.0.tgz
     version: 0.1.0
-generated: "2025-02-06T13:56:13.00305764Z"
+  mpi:
+  - apiVersion: v2
+    appVersion: 1.0.0
+    created: "2025-07-03T12:12:54.644959346Z"
+    description: Master Patient Index
+    digest: 1e0589644b170a085a0470fc645b5fbcab6a19a7d4caa6f25e82eb82165f5c7c
+    name: mpi
+    type: application
+    urls:
+    - https://github.com/Aidbox/helm-charts/releases/download/mpi-0.1.0/mpi-0.1.0.tgz
+    version: 0.1.0
+generated: "2025-07-03T12:12:54.645038786Z"
