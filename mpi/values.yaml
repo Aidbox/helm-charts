@@ -1,0 +1,115 @@
+# -- Host name MPI will be available at
+host: my.domain.tld
+# -- Protocol to be used to access MPI (http or https)
+protocol: http
+
+config:
+  MPI_PORT: 8080
+  MPI_METRICS_PORT: 8765
+  PGPORT: 5432
+
+replicaCount: 1
+
+image:
+  repository: us-east1-docker.pkg.dev/aidbox2-205511/sonic/mpi
+  pullPolicy: IfNotPresent
+  tag: "edge"
+
+imagePullSecrets: []
+
+nameOverride: ""
+fullnameOverride: ""
+
+serviceAccount:
+  name: ""
+
+podAnnotations: {}
+deploymentAnnotations: {}
+podLabels: {}
+podSecurityContext: {}
+  # fsGroup: 2000
+
+securityContext: {}
+  # capabilities:
+  #   drop:
+  #   - ALL
+  # readOnlyRootFilesystem: true
+  # runAsNonRoot: true
+  # runAsUser: 1000
+
+service:
+  type: ClusterIP
+  apiPort: 80
+  metricsPort: 8765
+
+ingress:
+  enabled: true
+  className: "nginx"
+  annotations: {}
+    # cert-manager.io/cluster-issuer: letsencrypt
+  defaultPath: "/"
+
+resources:
+  # limits:
+  #   cpu: 100m
+  #   memory: 128Mi
+  requests:
+    cpu: 500m
+    memory: 256Mi
+
+livenessProbe:
+  httpGet:
+    path: /health
+    port: api
+  periodSeconds: 10
+  failureThreshold: 10
+readinessProbe:
+  httpGet:
+    path: /health
+    port: api
+  periodSeconds: 10
+  successThreshold: 1
+  failureThreshold: 5
+startupProbe:
+  httpGet:
+    path: /health
+    port: api
+  initialDelaySeconds: 20
+  periodSeconds:  5
+  failureThreshold: 10
+
+# This section is for setting up autoscaling more information can be found here: https://kubernetes.io/docs/concepts/workloads/autoscaling/
+autoscaling:
+  enabled: false
+  minReplicas: 1
+  maxReplicas: 100
+  targetCPUUtilizationPercentage: 80
+  # targetMemoryUtilizationPercentage: 80
+
+# Additional volumes on the output Deployment definition.
+volumes: []
+# - name: foo
+#   secret:
+#     secretName: mysecret
+#     optional: false
+
+# Additional volumeMounts on the output Deployment definition.
+volumeMounts: []
+# - name: foo
+#   mountPath: "/etc/foo"
+#   readOnly: true
+
+updateStrategy:
+  type: RollingUpdate
+
+nodeSelector: {}
+
+tolerations: []
+
+affinity: {}
+
+extraEnvFromConfigMaps: []
+extraEnvFromSecrets: []
+
+serviceMonitor:
+  enabled: false

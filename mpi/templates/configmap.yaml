@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ include "mpi.fullname" . }}
+  labels:
+    {{- include "mpi.labels" . | nindent 4 }}
+data:
+  {{- range $key, $val := .Values.config }}
+  {{- if and (ne $key "PGUSER") (ne $key "PGPASSWORD") (ne $key "AIDBOX_CLIENT_ID") (ne $key "AIDBOX_CLIENT_SECRET")}}
+  {{ $key }}: {{ $val | quote }}
+  {{- end }}
+  {{- end }}
+  MPI_BASE_URL: {{ (printf "%s://%s" .Values.protocol .Values.host) | quote }}

@@ -1,0 +1,35 @@
+{{- if .Values.ingress.enabled -}}
+{{- $fullName := include "mpi.fullname" . -}}
+{{- $host := .Values.host }}
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: {{ $fullName }}
+  labels:
+    {{- include "mpi.labels" . | nindent 4 }}
+  {{- with .Values.ingress.annotations }}
+  annotations:
+    {{- toYaml . | nindent 4 }}
+  {{- end }}
+spec:
+  {{- if and .Values.ingress.className }}
+  ingressClassName: {{ .Values.ingress.className }}
+  {{- end }}
+  {{- if eq .Values.protocol "https" }}
+  tls:
+    - hosts:
+        - {{ $host }}
+      secretName: {{ $fullName }}-tls
+  {{- end }}
+  rules:
+    - host: {{ $host }}
+      http:
+        paths:
+          - path: {{ .Values.ingress.defaultPath | default "/" | quote }}
+            pathType: {{ .Values.ingress.pathType | default "ImplementationSpecific" | quote }}
+            backend:
+              service:
+                name: {{ $fullName }}-api
+                port:
+                  number: {{ int .Values.service.apiPort }}
+{{- end }}
