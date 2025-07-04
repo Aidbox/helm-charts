@@ -40,6 +40,11 @@ spec:
             - name: main
               containerPort: {{ .Values.service.port }}
               protocol: TCP
+          env:
+            - name: PORT
+              value: {{ .Values.service.port | quote }} 
+            - name: BINDING
+              value: "0.0.0.0" 
           envFrom:
             - configMapRef:
                 name: {{ include "auditbox.fullname" . }}
