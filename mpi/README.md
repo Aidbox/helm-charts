@@ -63,7 +63,12 @@ config:
   MPI_NOTIFICATION_CONSUMER_URL: http://localhost:9876
   MPI_NOTIFICATION_INTERVAL: 1000 # time interval between sending notifications (in ms)
   MPI_NOTIFICATION_BATCH_SIZE: 10
-  MPI_NOTIFICATION_LOCK_ID: 12345 # will be used for pg_try_advisory_xact_lock, this need to avoid race condition or deadlock between mpi instances (should be the same for all mpi instances)
+  MPI_NOTIFICATION_LOCK_ID: 12345 # will be used for pg_try_advisory_xact_lock, this is needed to avoid race condition or deadlock between mpi instances (should be the same for all mpi instances and different from other lock ids)
+  MPI_AUDIT_WORKER_ENABLE: false # turn on or turn off audit send worker. Audit will be recorded anyway, but will not be sent to external audit repository 
+  MPI_AUDIT_CONSUMER_URL: http://localhost:9877
+  MPI_AUDIT_INTERVAL: 1000 # time interval between sending notifications (in ms)
+  MPI_AUDIT_BATCH_SIZE: 10 
+  MPI_AUDIT_LOCK_ID: 54321 # will be used for pg_try_advisory_xact_lock, this is needed to avoid race condition or deadlock between mpi instances (should be the same for all mpi instances and different from other lock ids)
 
 image:
   repository: us-east1-docker.pkg.dev/aidbox2-205511/sonic/mpi
