@@ -6,9 +6,9 @@ protocol: http
 # -- Aidbox config
 # see [Aidbox environment variables](https://docs.aidbox.app/reference/configuration/environment-variables) for details
 config:
-  AIDBOX_PORT: 8080
+  BOX_WEB_PORT: 8080
   BOX_METRICS_PORT: 8765
-  PGPORT: 5432
+  BOX_DB_PORT: 5432
 
 image:
   repository: healthsamurai/aidboxone
