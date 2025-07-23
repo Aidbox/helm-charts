@@ -43,7 +43,7 @@ spec:
             {{- end }}
           ports:
             - name: api
-              containerPort: {{ int .Values.config.AIDBOX_PORT }}
+              containerPort: {{ int .Values.config.BOX_WEB_PORT }}
               protocol: TCP
             - name: metrics
               containerPort: {{ int .Values.config.BOX_METRICS_PORT }}

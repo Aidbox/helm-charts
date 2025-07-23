@@ -4,26 +4,23 @@
 
 ![Version: 0.1.18](https://img.shields.io/badge/Version-0.1.18-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: edge](https://img.shields.io/badge/AppVersion-edge-informational?style=flat-square)
 
+> Important! Starting from version: 0.2.0, the repo fully switched to the new environment variable naming conventions introduced in Aidbox version: 2503.
+To keep the old naming convention, stick with version: 0.1.18. More information about naming convention you can find [here](https://docs.aidbox.app/reference/settings).
+
 ## Installation
 
 1. Obtain a [license](https://docs.aidbox.app/~/changes/cP0dGveACDeqsL8PvFlu/overview/editions-and-pricing#aidbox-licenses).
-2. Prepare the configuration file. Please refer to the [Aidbox environment variables](https://docs.aidbox.app/reference/configuration/environment-variables) for details.
+2. Prepare the configuration file. Please refer to the [Recommended Aidbox environment variables](https://docs.aidbox.app/configuration/configure-aidbox-and-multibox) for details. For the whole list of available environment variables follow [the settings documentation](https://docs.aidbox.app/reference/settings).
 
 ```yaml
 host: <your host here, e.g. my.domain.tld>
 protocol: <http or https>
 
 config:
-  AIDBOX_FHIR_VERSION: <FHIR version, e.g. 4.0.0>
-  PGHOST: <PostgreSQL host to connect to>
-  PGDATABASE: <name of the database that is used to store resources>
-  PGUSER: <PostgreSQL user>
-  PGPASSWORD: <PostgreSQL password>
-  AIDBOX_CLIENT_ID: <root client resource id to create on startup>
-  AIDBOX_CLIENT_SECRET: <secret for the root client>
-  AIDBOX_ADMIN_ID: <root user resource id to create on startup>
-  AIDBOX_ADMIN_PASSWORD: <password for the root user>
-  AIDBOX_LICENSE: <license JWT obtained from the license server>
+  BOX_DB_HOST: <PostgreSQL host to connect to>
+  BOX_DB_DATABASE: <name of the database that is used to store resources>
+  BOX_DB_USER: <PostgreSQL user>
+  BOX_DB_PASSWORD: <PostgreSQL password>
 ```
 
 ```console
