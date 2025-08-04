@@ -6,7 +6,8 @@ metadata:
     {{- include "aidbox.labels" . | nindent 4 }}
 data:
   {{- range $key, $val := .Values.config }}
-  {{- if and (ne $key "BOX_DB_USER") (ne $key "BOX_DB_PASSWORD") (ne $key "BOX_ROOT_CLIENT_ID") (ne $key "BOX_ROOT_CLIENT_SECRET") (ne $key "BOX_ADMIN_ID") (ne $key "BOX_ADMIN_PASSWORD") (ne $key "AIDBOX_LICENSE") (ne $key "BOX_OBSERVABILITY_ELASTIC_SEARCH_AUTH") (ne $key "AIDBOX_SUPERUSER") (ne $key "AIDBOX_CLUSTER_SECRET") }}
+  {{- if and 
+    (ne $key "BOX_DB_USER") (ne $key "BOX_DB_PASSWORD") (ne $key "BOX_ROOT_CLIENT_ID") (ne $key "BOX_ROOT_CLIENT_SECRET") (ne $key "BOX_ADMIN_ID") (ne $key "BOX_ADMIN_PASSWORD") (ne $key "AIDBOX_LICENSE") (ne $key "BOX_OBSERVABILITY_ELASTIC_SEARCH_AUTH") (ne $key "AIDBOX_SUPERUSER") (ne $key "AIDBOX_CLUSTER_SECRET") (ne $key "BOX_DB_DATABASE") (ne $key "BOX_DB_HOST")}}
   {{ $key }}: {{ $val | quote }}
   {{- end }}
   {{- end }}
