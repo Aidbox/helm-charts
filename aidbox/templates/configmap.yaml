@@ -6,11 +6,11 @@ metadata:
     {{- include "aidbox.labels" . | nindent 4 }}
 data:
   {{- range $key, $val := .Values.config }}
-  {{- if and 
+  {{- if and
     (ne $key "BOX_DB_USER") (ne $key "BOX_DB_PASSWORD") (ne $key "BOX_ROOT_CLIENT_ID") (ne $key "BOX_ROOT_CLIENT_SECRET") (ne $key "BOX_ADMIN_ID") (ne $key "BOX_ADMIN_PASSWORD") (ne $key "AIDBOX_LICENSE") (ne $key "BOX_OBSERVABILITY_ELASTIC_SEARCH_AUTH") (ne $key "AIDBOX_SUPERUSER") (ne $key "AIDBOX_CLUSTER_SECRET") (ne $key "BOX_DB_DATABASE") (ne $key "BOX_DB_HOST")}}
   {{ $key }}: {{ $val | quote }}
   {{- end }}
   {{- end }}
-
   BOX_DB_DATABASE: {{ required "missing config BOX_DB_DATABASE value" .Values.config.BOX_DB_DATABASE | quote }}
   BOX_DB_HOST: {{ required "missing config BOX_DB_HOST value" .Values.config.BOX_DB_HOST | quote }}
+  BOX_WEB_BASE_URL: {{ required "missing protocol value" .Values.protocol }}://{{ or .Values.config.AIDBOX_CLUSTER_DOMAIN (required "missing host value" .Values.host) }}

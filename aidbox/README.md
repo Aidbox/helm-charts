@@ -4,8 +4,10 @@
 
 ![Version: 0.1.18](https://img.shields.io/badge/Version-0.1.18-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: edge](https://img.shields.io/badge/AppVersion-edge-informational?style=flat-square)
 
-> Important! Starting from version: 0.2.0, the repo fully switched to the new environment variable naming conventions introduced in Aidbox version: 2503.
-To keep the old naming convention, stick with version: 0.1.18. More information about naming convention you can find [here](https://docs.aidbox.app/reference/settings).
+> Important! Starting from version: `0.2.x`, the repo fully switched to the new environment variable naming conventions introduced in Aidbox version: 2503.
+To keep the old naming convention, stick with version in `0.1.x` More information about naming convention you can find [here](https://docs.aidbox.app/reference/settings).
+
+![Version: 0.2.2](https://img.shields.io/badge/Version-0.2.2-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: edge](https://img.shields.io/badge/AppVersion-edge-informational?style=flat-square)
 
 ## Installation
 
@@ -42,7 +44,7 @@ It will install the Aidbox in the `aidbox` namespace, creating that namespace if
 | autoscaling.maxReplicas | int | `100` |  |
 | autoscaling.minReplicas | int | `1` |  |
 | autoscaling.targetCPUUtilizationPercentage | int | `80` |  |
-| config | object | `{"AIDBOX_PORT":8080,"BOX_METRICS_PORT":8765,"PGPORT":5432}` | Aidbox config see [Aidbox environment variables](https://docs.aidbox.app/reference/configuration/environment-variables) for details |
+| config | object | `{"BOX_DB_PORT":5432,"BOX_METRICS_PORT":8765,"BOX_WEB_PORT":8080}` | Aidbox config see [Aidbox environment variables](https://docs.aidbox.app/reference/configuration/environment-variables) for details |
 | extraEnvFromConfigMaps | list | `[]` |  |
 | extraEnvFromSecrets | list | `[]` |  |
 | fullnameOverride | string | `""` |  |
