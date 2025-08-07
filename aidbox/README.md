@@ -57,6 +57,7 @@ It will install the Aidbox in the `aidbox` namespace, creating that namespace if
 | ingress.className | string | `"nginx"` |  |
 | ingress.defaultPath | string | `"/"` |  |
 | ingress.enabled | bool | `true` |  |
+| initContainers | list | `[]` | |
 | livenessProbe.failureThreshold | int | `10` |  |
 | livenessProbe.httpGet.path | string | `"/health"` |  |
 | livenessProbe.httpGet.port | string | `"api"` |  |
