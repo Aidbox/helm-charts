@@ -88,6 +88,8 @@ spec:
                     {{- include "aidbox.selectorLabels" . | nindent 20 }}
                 topologyKey: "kubernetes.io/hostname"
       {{- end }}
+      nodeSelector:
+        {{- toYaml .Values.nodeSelector | nindent 8 }}
       securityContext:
         {{- toYaml .Values.podSecurityContext | nindent 8 }}
       {{- with .Values.tolerations }}
