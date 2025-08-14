@@ -3,24 +3,41 @@ apiVersion: monitoring.coreos.com/v1
 kind: ServiceMonitor
 metadata:
   name: {{ include "aidbox.fullname" . }}
-  labels:
-    release: prometheus
 spec:
   endpoints:
     - honorLabels: true
       interval: 10s
       path: /metrics
       targetPort: {{ int .Values.config.BOX_METRICS_PORT }}
+      relabelings:
+        - sourceLabels: [__meta_kubernetes_service_name]
+          regex: {{ include "aidbox.fullname" . }}-api
+          action: keep
+        - sourceLabels: [__meta_kubernetes_service_name]
+          regex: {{ include "aidbox.fullname" . }}-metrics
+          action: drop
     - honorLabels: true
       interval: 60s
       path: /metrics/minutes
       targetPort: {{ int .Values.config.BOX_METRICS_PORT }}
+      relabelings:
+        - sourceLabels: [__meta_kubernetes_service_name]
+          regex: {{ include "aidbox.fullname" . }}-api
+          action: keep
+        - sourceLabels: [__meta_kubernetes_service_name]
+          regex: {{ include "aidbox.fullname" . }}-metrics
+          action: drop
     - honorLabels: true
       interval: 10m
       path: /metrics/hours
       targetPort: {{ int .Values.config.BOX_METRICS_PORT }}
-  namespaceSelector:
-    any: true
+      relabelings:
+        - sourceLabels: [__meta_kubernetes_service_name]
+          regex: {{ include "aidbox.fullname" . }}-api
+          action: keep
+        - sourceLabels: [__meta_kubernetes_service_name]
+          regex: {{ include "aidbox.fullname" . }}-metrics
+          action: drop
   selector:
     matchLabels:
       {{- include "aidbox.selectorLabels" . | nindent 6 }}
