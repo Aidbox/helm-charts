@@ -16,6 +16,9 @@ spec:
         - sourceLabels: [__meta_kubernetes_service_name]
           regex: {{ include "aidbox.fullname" . }}-metrics
           action: drop
+      metricRelabelings:
+        - action: labeldrop
+          regex: pid
     - honorLabels: true
       interval: 60s
       path: /metrics/minutes
@@ -27,6 +30,9 @@ spec:
         - sourceLabels: [__meta_kubernetes_service_name]
           regex: {{ include "aidbox.fullname" . }}-metrics
           action: drop
+      metricRelabelings:
+        - action: labeldrop
+          regex: pid
     - honorLabels: true
       interval: 10m
       path: /metrics/hours
@@ -38,6 +44,9 @@ spec:
         - sourceLabels: [__meta_kubernetes_service_name]
           regex: {{ include "aidbox.fullname" . }}-metrics
           action: drop
+      metricRelabelings:
+        - action: labeldrop
+          regex: pid
   selector:
     matchLabels:
       {{- include "aidbox.selectorLabels" . | nindent 6 }}
