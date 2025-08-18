@@ -1,6 +1,6 @@
 # auditbox
 
-![Version: 0.1.0](https://img.shields.io/badge/Version-0.1.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.0.0](https://img.shields.io/badge/AppVersion-1.0.0-informational?style=flat-square)
+![Version: 0.1.1](https://img.shields.io/badge/Version-0.1.1-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.0.0](https://img.shields.io/badge/AppVersion-1.0.0-informational?style=flat-square)
 
 ## Installation
 
@@ -8,17 +8,15 @@
 
 ```yaml
 config:
-  ELASTIC_URI: <Elastic URI>                       # required
-  AUDITBOX_BASE_URL: <Auditbox Base URL>           # required
-  IDP_AUTHORIZE_ENDPOINT: <IDP Authorize Endpoint> # required
-  IDP_TOKEN_ENDPOINT: <IDP Token Endpoint>         # required
-  IDP_CLIENT_ID: <IDP Client ID>                   # required
-  IDP_CLIENT_SECRET: <IDP Client Secret>           # required
-  AUDITBOX_ES_AUTH: <'<user>:<password>'>          # optional
-  AUDITBOX_LOG_LEVEL: <off|info|debug|error>       # required
-  AUDITBOX_API_AUTH_ENABLED: <true|false>          # required
+  ELASTIC_URI: <Elastic URI>
+  AUDITBOX_BASE_URL: <Auditbox Base URL>
+  IDP_AUTHORIZE_ENDPOINT: <IDP Authorize Endpoint>
+  IDP_TOKEN_ENDPOINT: <IDP Token Endpoint>
+  IDP_CLIENT_ID: <IDP Client ID>
+  IDP_CLIENT_SECRET: <IDP Client Secret>
+  AUDITBOX_LOG_LEVEL: <"off"|"info"|"debug"|"error">
+  AUDITBOX_API_AUTH_ENABLED: <true|false>
 ```
-
 
 ```console
 helm repo add aidbox https://aidbox.github.io/helm-charts
@@ -39,6 +37,7 @@ It will install the Auditbox in the `auditbox` namespace, creating that namespac
 | autoscaling.maxReplicas | int | `100` |  |
 | autoscaling.minReplicas | int | `1` |  |
 | autoscaling.targetCPUUtilizationPercentage | int | `80` |  |
+| config | object | `{}` |  |
 | extraEnvFromConfigMaps | list | `[]` |  |
 | extraEnvFromSecrets | list | `[]` |  |
 | fullnameOverride | string | `""` |  |
