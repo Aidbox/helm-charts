@@ -15,6 +15,8 @@ config:
   IDP_CLIENT_ID: <IDP Client ID>                   # required
   IDP_CLIENT_SECRET: <IDP Client Secret>           # required
   AUDITBOX_ES_AUTH: <'<user>:<password>'>          # optional
+  AUDITBOX_LOG_LEVEL: <off|info|debug|error>       # required
+  AUDITBOX_API_AUTH_ENABLED: <true|false>          # required
 ```
 
 
