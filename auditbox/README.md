@@ -8,14 +8,15 @@
 
 ```yaml
 config:
-  ELASTIC_URI: <Elastic URI>
-  AUDITBOX_BASE_URL: <Auditbox Base URL>
-  IDP_AUTHORIZE_ENDPOINT: <IDP Authorize Endpoint>
-  IDP_TOKEN_ENDPOINT: <IDP Token Endpoint>
-  IDP_CLIENT_ID: <IDP Client ID>
-  IDP_CLIENT_SECRET: <IDP Client Secret>
-  AUDITBOX_LOG_LEVEL: <"off"|"info"|"debug"|"error">
-  AUDITBOX_API_AUTH_ENABLED: <true|false>
+  ELASTIC_URI: <Elastic URI>                          # required
+  AUDITBOX_BASE_URL: <Auditbox Base URL>              # required
+  IDP_AUTHORIZE_ENDPOINT: <IDP Authorize Endpoint>    # required
+  IDP_TOKEN_ENDPOINT: <IDP Token Endpoint>            # required
+  IDP_CLIENT_ID: <IDP Client ID>                      # required
+  IDP_CLIENT_SECRET: <IDP Client Secret>              # required
+  AUDITBOX_LOG_LEVEL: <"off"|"info"|"debug"|"error">  # required
+  AUDITBOX_API_AUTH_ENABLED: <true|false>             # required
+  AUDITBOX_ES_AUTH: <'<user>:<password>'>             # optional
 ```
 
 ```console
