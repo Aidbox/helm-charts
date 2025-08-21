@@ -15,7 +15,5 @@ data:
   AUDITBOX_BASE_URL: {{ required "missing config AUDITBOX_BASE_URL value" .Values.config.AUDITBOX_BASE_URL | quote }}
   IDP_AUTHORIZE_ENDPOINT: {{ required "missing config IDP_AUTHORIZE_ENDPOINT value" .Values.config.IDP_AUTHORIZE_ENDPOINT | quote }}
   IDP_TOKEN_ENDPOINT: {{ required "missing config IDP_TOKEN_ENDPOINT value" .Values.config.IDP_TOKEN_ENDPOINT | quote }}
-  IDP_CLIENT_ID: {{ required "missing config IDP_CLIENT_ID value" .Values.config.IDP_CLIENT_ID | quote }}
-  IDP_CLIENT_SECRET: {{ required "missing config IDP_CLIENT_SECRET value" .Values.config.IDP_CLIENT_SECRET | quote }}
   AUDITBOX_LOG_LEVEL: {{ required "missing config AUDITBOX_LOG_LEVEL value" .Values.config.AUDITBOX_LOG_LEVEL | quote }}
   AUDITBOX_API_AUTH_ENABLED: {{ required "missing config AUDITBOX_API_AUTH_ENABLED value" .Values.config.AUDITBOX_API_AUTH_ENABLED | quote }}
