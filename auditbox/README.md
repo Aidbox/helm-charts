@@ -1,6 +1,6 @@
 # auditbox
 
-![Version: 0.1.4](https://img.shields.io/badge/Version-0.1.4-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.0.0](https://img.shields.io/badge/AppVersion-1.0.0-informational?style=flat-square)
+![Version: 0.1.5](https://img.shields.io/badge/Version-0.1.5-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.0.0](https://img.shields.io/badge/AppVersion-1.0.0-informational?style=flat-square)
 
 ## Installation
 
@@ -14,6 +14,7 @@ config:
   IDP_TOKEN_ENDPOINT: <IDP Token Endpoint>            # required
   IDP_CLIENT_ID: <IDP Client ID>                      # required
   IDP_CLIENT_SECRET: <IDP Client Secret>              # required
+  IDP_JWKS_URI: <IDP JWKS URI>                        # required
   AUDITBOX_LOG_LEVEL: <"off"|"info"|"debug"|"error">  # required
   AUDITBOX_API_AUTH_ENABLED: <true|false>             # required
   AUDITBOX_ES_AUTH: <'<user>:<password>'>             # optional
