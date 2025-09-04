@@ -13,3 +13,5 @@ data:
   IDP_JWKS_URI: {{ required "missing config IDP_JWKS_URI value" .Values.config.IDP_JWKS_URI | quote }}
   AUDITBOX_LOG_LEVEL: {{ required "missing config AUDITBOX_LOG_LEVEL value" .Values.config.AUDITBOX_LOG_LEVEL | quote }}
   AUDITBOX_API_AUTH_ENABLED: {{ required "missing config AUDITBOX_API_AUTH_ENABLED value" .Values.config.AUDITBOX_API_AUTH_ENABLED | quote }}
+  {{ if .Values.config.AUDITBOX_SNAPSHOT_REPOSITORY_NAME }}AUDITBOX_SNAPSHOT_REPOSITORY_NAME: {{ .Values.config.AUDITBOX_SNAPSHOT_REPOSITORY_NAME | quote }}{{ end }}
+  AUDITBOX_VERIFY_BACKUP_REPOSITORY: {{ .Values.config.AUDITBOX_VERIFY_BACKUP_REPOSITORY | quote }}
