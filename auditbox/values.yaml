@@ -85,8 +85,10 @@ extraEnvFromSecrets: []
 
 affinity: {}
 
+# -- Auditbox config
 config:
   AUDITBOX_VERIFY_BACKUP_REPOSITORY: false
+  BINDING: 0.0.0.0
 
 # Additional volumes on the output Deployment definition.
 volumes: []

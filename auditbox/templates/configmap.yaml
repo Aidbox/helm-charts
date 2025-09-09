@@ -5,13 +5,15 @@ metadata:
   labels:
     {{- include "auditbox.labels" . | nindent 4 }}
 data:
-  BINDING: 0.0.0.0
-  ELASTIC_URI: {{ required "missing config ELASTIC_URI value" .Values.config.ELASTIC_URI | quote }}
-  AUDITBOX_BASE_URL: {{ required "missing config AUDITBOX_BASE_URL value" .Values.config.AUDITBOX_BASE_URL | quote }}
-  IDP_AUTHORIZE_ENDPOINT: {{ required "missing config IDP_AUTHORIZE_ENDPOINT value" .Values.config.IDP_AUTHORIZE_ENDPOINT | quote }}
-  IDP_TOKEN_ENDPOINT: {{ required "missing config IDP_TOKEN_ENDPOINT value" .Values.config.IDP_TOKEN_ENDPOINT | quote }}
-  IDP_JWKS_URI: {{ required "missing config IDP_JWKS_URI value" .Values.config.IDP_JWKS_URI | quote }}
-  AUDITBOX_LOG_LEVEL: {{ required "missing config AUDITBOX_LOG_LEVEL value" .Values.config.AUDITBOX_LOG_LEVEL | quote }}
   AUDITBOX_API_AUTH_ENABLED: {{ required "missing config AUDITBOX_API_AUTH_ENABLED value" .Values.config.AUDITBOX_API_AUTH_ENABLED | quote }}
-  {{ if .Values.config.AUDITBOX_SNAPSHOT_REPOSITORY_NAME }}AUDITBOX_SNAPSHOT_REPOSITORY_NAME: {{ .Values.config.AUDITBOX_SNAPSHOT_REPOSITORY_NAME | quote }}{{ end }}
-  AUDITBOX_VERIFY_BACKUP_REPOSITORY: {{ .Values.config.AUDITBOX_VERIFY_BACKUP_REPOSITORY | quote }}
+  AUDITBOX_BASE_URL: {{ required "missing config AUDITBOX_BASE_URL value" .Values.config.AUDITBOX_BASE_URL | quote }}
+  AUDITBOX_LOG_LEVEL: {{ required "missing config AUDITBOX_LOG_LEVEL value" .Values.config.AUDITBOX_LOG_LEVEL | quote }}
+  ELASTIC_URI: {{ required "missing config ELASTIC_URI value" .Values.config.ELASTIC_URI | quote }}
+  IDP_AUTHORIZE_ENDPOINT: {{ required "missing config IDP_AUTHORIZE_ENDPOINT value" .Values.config.IDP_AUTHORIZE_ENDPOINT | quote }}
+  IDP_JWKS_URI: {{ required "missing config IDP_JWKS_URI value" .Values.config.IDP_JWKS_URI | quote }}
+  IDP_TOKEN_ENDPOINT: {{ required "missing config IDP_TOKEN_ENDPOINT value" .Values.config.IDP_TOKEN_ENDPOINT | quote }}
+  {{- range $key, $val := .Values.config }}
+  {{- if and (ne $key "ELASTIC_URI") (ne $key "AUDITBOX_BASE_URL") (ne $key "IDP_AUTHORIZE_ENDPOINT") (ne $key "IDP_TOKEN_ENDPOINT") (ne $key "IDP_JWKS_URI") (ne $key "AUDITBOX_LOG_LEVEL") (ne $key "AUDITBOX_API_AUTH_ENABLED")}}
+  {{ $key }}: {{ $val | quote }}
+  {{- end }}
+  {{- end }}
