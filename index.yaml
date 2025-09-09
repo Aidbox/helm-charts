@@ -429,6 +429,17 @@ entries:
   auditbox:
   - apiVersion: v2
     appVersion: 1.0.0
+    created: "2025-09-09T10:27:20.905271486Z"
+    description: Audit Record Repository by Health Samurai
+    digest: b9bccd8c16a93cc8876479e75bae1f8e88a12f86f7fbeb946faaf8498b6773eb
+    icon: https://aidbox.github.io/helm-charts/icon.png?1712669999
+    name: auditbox
+    type: application
+    urls:
+    - https://github.com/Aidbox/helm-charts/releases/download/auditbox-0.1.9/auditbox-0.1.9.tgz
+    version: 0.1.9
+  - apiVersion: v2
+    appVersion: 1.0.0
     created: "2025-09-04T11:44:49.217354295Z"
     description: Audit Record Repository by Health Samurai
     digest: f5f3a118460d078c80d29b0fae0ae39875bcaacfa5943a03c80186930d286d32
@@ -537,4 +548,4 @@ entries:
     urls:
     - https://github.com/Aidbox/helm-charts/releases/download/mpi-0.1.0/mpi-0.1.0.tgz
     version: 0.1.0
-generated: "2025-09-04T11:44:49.217467658Z"
+generated: "2025-09-09T10:27:20.905398829Z"
