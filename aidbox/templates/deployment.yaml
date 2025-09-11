@@ -60,6 +60,25 @@ spec:
           volumeMounts:
             {{- toYaml . | nindent 12 }}
           {{- end }}
+        {{- if .Values.auditbox.enabled }}
+        - name: {{ .Chart.Name }}-auditbox
+          image: envoyproxy/envoy:v1.35-latest
+          args:
+            - --config-path
+            - /etc/envoy/auditbox.yaml
+          env:
+          - name: CLIENT_SECRET
+            valueFrom:
+              secretKeyRef:
+                key: secret
+                name: {{ if .Values.auditbox.auth.existingSecretName }}{{ .Values.auditbox.auth.existingSecretName}}{{ else }}{{ include "aidbox.fullname" . }}-auditbox{{ end }}
+          ports:
+            - containerPort: {{ .Values.auditbox.port }}
+            - containerPort: 9901
+          volumeMounts:
+            - name: auditbox-config
+              mountPath: /etc/envoy
+        {{- end }}
       {{- with .Values.initContainers }}
       initContainers:
         {{- toYaml . | nindent 8 }}
@@ -70,9 +89,16 @@ spec:
       {{- if .Values.serviceAccount.name }}
       serviceAccountName: {{ .Values.serviceAccount.name }}
       {{- end }}
-      {{- with .Values.volumes }}
+      {{- if or .Values.volumes .Values.auditbox.enabled }}
       volumes:
-        {{- toYaml . | nindent 8 }}
+        {{- range $x := .Values.volumes }}
+        {{ toYaml $x }}
+        {{- end }}
+        {{- if .Values.auditbox.enabled }}
+        - name: auditbox-config
+          configMap:
+            name: {{ include "aidbox.fullname" . }}-auditbox
+        {{- end }}
       {{- end }}
       {{- if .Values.affinity }}
       affinity:

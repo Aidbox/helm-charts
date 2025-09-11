@@ -118,3 +118,15 @@ tolerations: []
 nodeSelector: {}
 
 initContainers: []
+
+auditbox:
+  enabled: false
+  host: auditbox.health-samurai.io
+  port: 8081
+  auth:
+    client: ""
+    host: ""
+    path: ""
+    secret: ""
+    existingSecretName: ""
+

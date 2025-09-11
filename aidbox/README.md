@@ -7,7 +7,7 @@
 > Important! Starting from version: `0.2.x`, the repo fully switched to the new environment variable naming conventions introduced in Aidbox version: 2503.
 To keep the old naming convention, stick with version in `0.1.x` More information about naming convention you can find [here](https://docs.aidbox.app/reference/settings).
 
-![Version: 0.2.5](https://img.shields.io/badge/Version-0.2.5-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: edge](https://img.shields.io/badge/AppVersion-edge-informational?style=flat-square)
+![Version: 0.2.6](https://img.shields.io/badge/Version-0.2.6-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: edge](https://img.shields.io/badge/AppVersion-edge-informational?style=flat-square)
 
 ## Installation
 
@@ -40,6 +40,14 @@ It will install the Aidbox in the `aidbox` namespace, creating that namespace if
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
 | affinity | object | `{}` |  |
+| auditbox.auth.client | string | `""` |  |
+| auditbox.auth.existingSecretName | string | `""` |  |
+| auditbox.auth.host | string | `""` |  |
+| auditbox.auth.path | string | `""` |  |
+| auditbox.auth.secret | string | `""` |  |
+| auditbox.enabled | bool | `false` |  |
+| auditbox.host | string | `"auditbox.health-samurai.io"` |  |
+| auditbox.port | int | `8081` |  |
 | autoscaling.enabled | bool | `false` |  |
 | autoscaling.maxReplicas | int | `100` |  |
 | autoscaling.minReplicas | int | `1` |  |
