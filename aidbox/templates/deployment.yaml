@@ -92,7 +92,7 @@ spec:
       {{- if or .Values.volumes .Values.auditbox.enabled }}
       volumes:
         {{- range $x := .Values.volumes }}
-        {{ toYaml $x }}
+        {{ toYaml $x | nindent 8 }}
         {{- end }}
         {{- if .Values.auditbox.enabled }}
         - name: auditbox-config
