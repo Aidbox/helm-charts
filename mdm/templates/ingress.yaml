@@ -1,0 +1,54 @@
+{{- if .Values.ingress.enabled -}}
+{{- $fullName := include "mdm.fullname" . -}}
+{{- $frontendName := include "mdm.frontendName" . -}}
+{{- $backendName := include "mdm.backendName" . -}}
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: {{ $fullName }}
+  labels:
+    {{- include "mdm.labels" . | nindent 4 }}
+  {{- with .Values.ingress.annotations }}
+  annotations:
+    {{- toYaml . | nindent 4 }}
+  {{- end }}
+spec:
+  {{- if .Values.ingress.className }}
+  ingressClassName: {{ .Values.ingress.className }}
+  {{- end }}
+  {{- if .Values.ingress.tls }}
+  tls:
+    {{- range .Values.ingress.tls }}
+    - secretName: {{ .secretName }}
+      hosts:
+        {{- range .hosts }}
+        - {{ . | quote }}
+        {{- end }}
+    {{- end }}
+  {{- end }}
+  rules:
+    {{- range .Values.ingress.hosts }}
+    - host: {{ .host }}
+      http:
+        paths:
+          {{- range .paths }}
+          - path: {{ .path }}
+            pathType: {{ .pathType | default "Prefix" }}
+            backend:
+              service:
+                {{- if eq .serviceName "frontend" }}
+                name: {{ $frontendName }}-api
+                port:
+                  number: {{ $.Values.frontend.service.apiPort }}
+                {{- else if eq .serviceName "backend" }}
+                name: {{ $backendName }}-api
+                port:
+                  number: {{ $.Values.backend.service.apiPort }}
+                {{- else }}
+                name: {{ .serviceName }}
+                port:
+                  number: {{ .servicePort }}
+                {{- end }}
+          {{- end }}
+    {{- end }}
+{{- end }}

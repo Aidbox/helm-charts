@@ -1,0 +1,35 @@
+frontend:
+  config:
+    HTTP_PORT: 3000
+    MPI_PG_PORT: 5432
+  image:
+    repository: ghcr.io/healthsamurai/mpi/frontend
+    pullPolicy: Always
+    tag: "latest"
+  service:
+    type: ClusterIP
+    apiPort: 80
+
+backend:
+  config:
+    MPI_HTTP_PORT: 8080
+    MPI_METRICS_PORT: 8765
+    MPI_HTTP_BINDING: "127.0.0.1"
+    MPI_LOG_LEVEL: 1
+    MPI_ENABLE_AUTHENTICATION: true
+    MPI_ENABLE_AUTHORIZATION: false
+  image:
+    repository: ghcr.io/healthsamurai/mpi/backend
+    pullPolicy: Always
+    tag: "lastest"
+  service:
+    type: ClusterIP
+    apiPort: 80
+    metricsPort: 8765
+
+ingress:
+  enabled: true
+  className: "nginx"
+  annotations: {}
+    # cert-manager.io/cluster-issuer: letsencrypt
+  defaultPath: "/"

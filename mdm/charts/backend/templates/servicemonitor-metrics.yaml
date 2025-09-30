@@ -1,0 +1,27 @@
+{{- if .Values.serviceMonitor.enabled -}}
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: {{ include "mdm.backendName" . }}
+  labels:
+    release: prometheus
+spec:
+  endpoints:
+    - honorLabels: true
+      interval: 10s
+      path: /metrics
+      targetPort: {{ int .Values.config.MPI_METRICS_PORT }}
+    - honorLabels: true
+      interval: 60s
+      path: /metrics/minutes
+      targetPort: {{ int .Values.config.MPI_METRICS_PORT }}
+    - honorLabels: true
+      interval: 10m
+      path: /metrics/hours
+      targetPort: {{ int .Values.config.MPI_METRICS_PORT }}
+  namespaceSelector:
+    any: true
+  selector:
+    matchLabels:
+      {{- include "mdm.backendSelectorLabels" . | nindent 6 }}
+{{- end }}
