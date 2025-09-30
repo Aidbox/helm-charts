@@ -573,6 +573,25 @@ entries:
     urls:
     - https://github.com/Aidbox/helm-charts/releases/download/auditbox-0.1.0/auditbox-0.1.0.tgz
     version: 0.1.0
+  mdm:
+  - apiVersion: v2
+    created: "2025-09-30T09:09:14.381652225Z"
+    dependencies:
+    - alias: frontend
+      name: mdm-frontend
+      repository: file://./charts/frontend
+      version: '*'
+    - alias: backend
+      name: mdm-backend
+      repository: file://./charts/backend
+      version: '*'
+    description: A Helm chart for Kubernetes
+    digest: e481853b989a8a5e5629e001345de29c888768f624cf0d0e38d96a54e4e12a83
+    name: mdm
+    type: application
+    urls:
+    - https://github.com/Aidbox/helm-charts/releases/download/mdm-0.1.0/mdm-0.1.0.tgz
+    version: 0.1.0
   mpi:
   - apiVersion: v2
     appVersion: 1.0.0
@@ -584,4 +603,4 @@ entries:
     urls:
     - https://github.com/Aidbox/helm-charts/releases/download/mpi-0.1.0/mpi-0.1.0.tgz
     version: 0.1.0
-generated: "2025-09-23T15:17:24.75775799Z"
+generated: "2025-09-30T09:09:14.381766889Z"
