@@ -1,6 +1,6 @@
 # auditbox
 
-![Version: 0.1.9](https://img.shields.io/badge/Version-0.1.9-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.0.0](https://img.shields.io/badge/AppVersion-1.0.0-informational?style=flat-square)
+![Version: 0.1.10](https://img.shields.io/badge/Version-0.1.10-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.0.0](https://img.shields.io/badge/AppVersion-1.0.0-informational?style=flat-square)
 
 ## Installation
 
@@ -54,17 +54,21 @@ It will install the Auditbox in the `auditbox` namespace, creating that namespac
 | ingress.hosts[0].paths[0].path | string | `"/"` |  |
 | ingress.hosts[0].paths[0].pathType | string | `"ImplementationSpecific"` |  |
 | ingress.tls | list | `[]` |  |
-| livenessProbe.failureThreshold | int | `100` |  |
-| livenessProbe.httpGet.path | string | `"/AuditEvent"` |  |
+| livenessProbe.failureThreshold | int | `5` |  |
+| livenessProbe.httpGet.path | string | `"/healthcheck"` |  |
 | livenessProbe.httpGet.port | string | `"main"` |  |
+| livenessProbe.initialDelaySeconds | int | `60` |  |
+| livenessProbe.periodSeconds | int | `30` |  |
 | nameOverride | string | `""` |  |
 | nodeSelector | object | `{}` |  |
 | podAnnotations | object | `{}` |  |
 | podLabels | object | `{}` |  |
 | podSecurityContext | object | `{}` |  |
-| readinessProbe.failureThreshold | int | `100` |  |
-| readinessProbe.httpGet.path | string | `"/AuditEvent"` |  |
+| readinessProbe.failureThreshold | int | `10` |  |
+| readinessProbe.httpGet.path | string | `"/healthcheck"` |  |
 | readinessProbe.httpGet.port | string | `"main"` |  |
+| readinessProbe.initialDelaySeconds | int | `60` |  |
+| readinessProbe.periodSeconds | int | `30` |  |
 | replicaCount | int | `1` |  |
 | resources.requests.cpu | string | `"100m"` |  |
 | resources.requests.memory | string | `"714Mi"` |  |

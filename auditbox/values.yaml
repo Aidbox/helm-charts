@@ -58,15 +58,19 @@ resources:
   #   memory: 128Mi
 
 livenessProbe:
-  failureThreshold: 100
+  failureThreshold: 5
   httpGet:
-    path: /AuditEvent
+    path: /healthcheck
     port: main
+  initialDelaySeconds: 60
+  periodSeconds: 30
 readinessProbe:
-  failureThreshold: 100
+  failureThreshold: 10
   httpGet:
-    path: /AuditEvent
+    path: /healthcheck
     port: main
+  initialDelaySeconds: 60
+  periodSeconds: 30
 
 
 autoscaling:
