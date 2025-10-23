@@ -586,6 +586,24 @@ entries:
     version: 0.1.0
   mdm:
   - apiVersion: v2
+    created: "2025-10-23T09:56:47.723533514Z"
+    dependencies:
+    - alias: frontend
+      name: mdm-frontend
+      repository: file://./charts/frontend
+      version: '*'
+    - alias: backend
+      name: mdm-backend
+      repository: file://./charts/backend
+      version: '*'
+    description: A Helm chart for Kubernetes
+    digest: 0e15e1209af9ee831159cda33f7adc972b289704104d3c58e91aaece4e6c59ec
+    name: mdm
+    type: application
+    urls:
+    - https://github.com/Aidbox/helm-charts/releases/download/mdm-0.1.1/mdm-0.1.1.tgz
+    version: 0.1.1
+  - apiVersion: v2
     created: "2025-09-30T09:09:14.381652225Z"
     dependencies:
     - alias: frontend
@@ -614,4 +632,4 @@ entries:
     urls:
     - https://github.com/Aidbox/helm-charts/releases/download/mpi-0.1.0/mpi-0.1.0.tgz
     version: 0.1.0
-generated: "2025-09-30T11:46:24.646471398Z"
+generated: "2025-10-23T09:56:47.723623212Z"
