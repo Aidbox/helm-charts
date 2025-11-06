@@ -4,6 +4,7 @@ image:
   repository: healthsamurai/auditbox
   pullPolicy: IfNotPresent
   tag: "alpha"
+  digest: ""
 
 imagePullSecrets: []
 nameOverride: ""

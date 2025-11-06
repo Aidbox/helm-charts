@@ -1,6 +1,6 @@
 # auditbox
 
-![Version: 0.1.10](https://img.shields.io/badge/Version-0.1.10-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.0.0](https://img.shields.io/badge/AppVersion-1.0.0-informational?style=flat-square)
+![Version: 0.1.11](https://img.shields.io/badge/Version-0.1.11-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.0.0](https://img.shields.io/badge/AppVersion-1.0.0-informational?style=flat-square)
 
 ## Installation
 
@@ -43,6 +43,7 @@ It will install the Auditbox in the `auditbox` namespace, creating that namespac
 | extraEnvFromConfigMaps | list | `[]` |  |
 | extraEnvFromSecrets | list | `[]` |  |
 | fullnameOverride | string | `""` |  |
+| image.digest | string | `""` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"healthsamurai/auditbox"` |  |
 | image.tag | string | `"alpha"` |  |
