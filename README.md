@@ -1,3 +1,5 @@
+:no_entry: [DEPRECATED] Active at [HealthSamurai/helm-charts](https://github.com/HealthSamurai/helm-charts)
+
 # Aidbox helm charts
 
 This repository hosts Helm charts designed to simplify the deployment process of [Aidbox](https://docs.aidbox.app/) and [AidboxDB](https://docs.aidbox.app/storage-1/aidboxdb-image) in Kubernetes for Aidbox customers. Aidbox, a robust and scalable FHIR server, empowers healthcare providers and developers to manage healthcare data efficiently.
